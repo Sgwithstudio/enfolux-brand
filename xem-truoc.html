@@ -1,0 +1,159 @@
+<title>ENFOLUX nhận diện</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a single column brand board; each direction is one block with a fixed grid of specimens. */
+:root {
+  --bg: #FFFFFF; --surface: #FAF6F0; --line: #E7DDCE; --fg: #1B1F1D; --muted: #5C6660; --accent: #1F4D3A; --copper: #A85F22;
+  --panel-light: #FFFFFF; --panel-dark: #14302A;
+  --font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #101815; --surface: #17221E; --line: #2A3A33; --fg: #EDE8DF; --muted: #A3ADA7; --accent: #8FC3A8; --copper: #D58A45; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #101815; --surface: #17221E; --line: #2A3A33; --fg: #EDE8DF; --muted: #A3ADA7; --accent: #8FC3A8; --copper: #D58A45; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 72px; display: grid; gap: 56px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 22px; font-weight: 700; }
+h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+p { margin: 0; max-width: 65ch; }
+.lede { color: var(--muted); }
+header { display: grid; gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 28px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); }
+section { display: grid; gap: 20px; }
+.dir-head { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+.tag { font-size: 13px; font-weight: 700; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 4px; padding: 0 8px; }
+.folder { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.panel { border-radius: 6px; padding: 36px 28px; display: grid; place-items: center; min-width: 0; }
+.panel.light { background: var(--panel-light); border: 1px solid var(--line); }
+.panel.dark { background: var(--panel-dark); }
+.panel img.big { width: 100%; max-width: 420px; height: auto; }
+.panel.small { padding: 18px 20px; place-items: center start; }
+.panel img.h32 { height: 32px; width: auto; max-width: none; }
+.row { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
+.icons { display: flex; gap: 18px; align-items: end; flex-wrap: wrap; background: var(--surface); border-radius: 6px; padding: 18px 20px; }
+.icons figure { margin: 0; display: grid; gap: 6px; justify-items: center; font-size: 11px; color: var(--muted); }
+.px { image-rendering: pixelated; }
+.og { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.og img { width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--line); }
+.palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.sw { display: grid; gap: 2px; font-size: 13px; }
+.sw i { display: block; height: 64px; border-radius: 4px; border: 1px solid var(--line); margin-bottom: 6px; }
+.sw b { font-weight: 600; }
+.sw span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.rules > div { display: grid; gap: 8px; align-content: start; min-width: 0; }
+ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.dont-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.dont { background: var(--panel-light); border: 1px solid var(--line); border-radius: 6px; padding: 16px 12px 10px; display: grid; gap: 10px; justify-items: center; font-size: 12px; color: #5C6660; text-align: center; }
+.dont img { height: 26px; width: auto; max-width: 100%; }
+.dont .x { color: #B23A2B; font-weight: 700; }
+code { font-size: 13px; background: var(--surface); padding: 1px 6px; border-radius: 3px; }
+@media (max-width: 720px) {
+  .pair, .og, .rules { grid-template-columns: 1fr; }
+  .dont-grid { grid-template-columns: 1fr 1fr; }
+  .row { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">enfolux.com · Nguyên liệu thực phẩm</div>
+    <h1>Bộ nhận diện ENFOLUX: 3 hướng logo</h1>
+    <p class="lede">Mỗi hướng được xem trên nền trắng và nền footer <code>#14302A</code>, ở cỡ lớn và ở đúng chiều cao header 32&nbsp;px, kèm favicon ở 16/32/48&nbsp;px và ảnh chia sẻ 1200×630. Cả 3 hướng đã có đủ file xuất, chọn hướng nào thì dùng thư mục đó.</p>
+  </header>
+
+  <section id="a">
+    <div class="dir-head"><span class="tag">A</span><h2>Wordmark thuần, hạt trong chữ "o"</h2><span class="folder">huong-a-wordmark/</span></div>
+    <p>Chữ "enfolux" Montserrat 600, giãn chữ nhẹ. Lòng chữ "o" giữ một hạt màu đồng: hạt nguyên liệu, cũng là điểm sáng của "lux". Gọn và đọc rõ nhất ở cỡ nhỏ, hợp với tinh thần nhà cung cấp châu Âu.</p>
+    <div class="pair">
+      <div class="panel light"><img class="big" src="huong-a-wordmark/logo-horizontal.png" alt="Logo hướng A trên nền trắng"></div>
+      <div class="panel dark"><img class="big" src="huong-a-wordmark/logo-horizontal-dark.png" alt="Logo hướng A trên nền tối"></div>
+      <div class="panel light small"><img class="h32" src="huong-a-wordmark/logo-horizontal.png" alt="Hướng A cao 32 px"></div>
+      <div class="panel dark small"><img class="h32" src="huong-a-wordmark/logo-horizontal-dark.png" alt="Hướng A cao 32 px nền tối"></div>
+    </div>
+    <div class="row">
+      <div class="icons">
+        <figure><img src="huong-a-wordmark/favicon.png" width="96" height="96" alt="Favicon A"><figcaption>512</figcaption></figure>
+        <figure><img class="px" src="huong-a-wordmark/_kiem-tra/favicon-48.png" width="48" height="48" alt=""><figcaption>48</figcaption></figure>
+        <figure><img class="px" src="huong-a-wordmark/_kiem-tra/favicon-32.png" width="32" height="32" alt=""><figcaption>32</figcaption></figure>
+        <figure><img class="px" src="huong-a-wordmark/_kiem-tra/favicon-16.png" width="16" height="16" alt=""><figcaption>16</figcaption></figure>
+      </div>
+      <div class="og"><img src="huong-a-wordmark/og-image.png" alt="Ảnh chia sẻ A nền kem"><img src="huong-a-wordmark/og-image-dark.png" alt="Ảnh chia sẻ A nền tối"></div>
+    </div>
+  </section>
+
+  <section id="b">
+    <div class="dir-head"><span class="tag">B</span><h2>Biểu tượng "e" và giọt chiết xuất</h2><span class="folder">huong-b-bieu-tuong/</span></div>
+    <p>Chữ "e" dựng từ vòng tròn và nét ngang, mở ở góc dưới phải, nơi một giọt màu đồng vừa rơi ra: tinh dầu, hương liệu, sự chắt lọc. Biểu tượng tách riêng được, dùng tốt cho tem nhãn và bao bì.</p>
+    <div class="pair">
+      <div class="panel light"><img class="big" src="huong-b-bieu-tuong/logo-horizontal.png" alt="Logo hướng B trên nền trắng"></div>
+      <div class="panel dark"><img class="big" src="huong-b-bieu-tuong/logo-horizontal-dark.png" alt="Logo hướng B trên nền tối"></div>
+      <div class="panel light small"><img class="h32" src="huong-b-bieu-tuong/logo-horizontal.png" alt="Hướng B cao 32 px"></div>
+      <div class="panel dark small"><img class="h32" src="huong-b-bieu-tuong/logo-horizontal-dark.png" alt="Hướng B cao 32 px nền tối"></div>
+    </div>
+    <div class="row">
+      <div class="icons">
+        <figure><img src="huong-b-bieu-tuong/favicon.png" width="96" height="96" alt="Favicon B"><figcaption>512</figcaption></figure>
+        <figure><img class="px" src="huong-b-bieu-tuong/_kiem-tra/favicon-48.png" width="48" height="48" alt=""><figcaption>48</figcaption></figure>
+        <figure><img class="px" src="huong-b-bieu-tuong/_kiem-tra/favicon-32.png" width="32" height="32" alt=""><figcaption>32</figcaption></figure>
+        <figure><img class="px" src="huong-b-bieu-tuong/_kiem-tra/favicon-16.png" width="16" height="16" alt=""><figcaption>16</figcaption></figure>
+      </div>
+      <div class="og"><img src="huong-b-bieu-tuong/og-image.png" alt="Ảnh chia sẻ B nền kem"><img src="huong-b-bieu-tuong/og-image-dark.png" alt="Ảnh chia sẻ B nền tối"></div>
+    </div>
+  </section>
+
+  <section id="c">
+    <div class="dir-head"><span class="tag">C</span><h2>Monogram "e" và vạch định lượng</h2><span class="folder">huong-c-monogram/</span></div>
+    <p>Chữ "e" Montserrat 700 trong khung vuông bo nhẹ, dưới chữ là vạch màu quế như mép muỗng gạt phẳng: đong đúng, chuẩn xác. Khối đặc nên nổi bật nhất trên tab trình duyệt và icon điện thoại.</p>
+    <div class="pair">
+      <div class="panel light"><img class="big" src="huong-c-monogram/logo-horizontal.png" alt="Logo hướng C trên nền trắng"></div>
+      <div class="panel dark"><img class="big" src="huong-c-monogram/logo-horizontal-dark.png" alt="Logo hướng C trên nền tối"></div>
+      <div class="panel light small"><img class="h32" src="huong-c-monogram/logo-horizontal.png" alt="Hướng C cao 32 px"></div>
+      <div class="panel dark small"><img class="h32" src="huong-c-monogram/logo-horizontal-dark.png" alt="Hướng C cao 32 px nền tối"></div>
+    </div>
+    <div class="row">
+      <div class="icons">
+        <figure><img src="huong-c-monogram/favicon.png" width="96" height="96" alt="Favicon C"><figcaption>512</figcaption></figure>
+        <figure><img class="px" src="huong-c-monogram/_kiem-tra/favicon-48.png" width="48" height="48" alt=""><figcaption>48</figcaption></figure>
+        <figure><img class="px" src="huong-c-monogram/_kiem-tra/favicon-32.png" width="32" height="32" alt=""><figcaption>32</figcaption></figure>
+        <figure><img class="px" src="huong-c-monogram/_kiem-tra/favicon-16.png" width="16" height="16" alt=""><figcaption>16</figcaption></figure>
+      </div>
+      <div class="og"><img src="huong-c-monogram/og-image.png" alt="Ảnh chia sẻ C nền kem"><img src="huong-c-monogram/og-image-dark.png" alt="Ảnh chia sẻ C nền tối"></div>
+    </div>
+  </section>
+
+  <section id="mau">
+    <h2>Bảng màu</h2>
+    <div class="palette">
+      <div class="sw"><i style="background:#1F4D3A"></i><b>Forest 700</b><span>#1F4D3A · màu chính</span></div>
+      <div class="sw"><i style="background:#14302A"></i><b>Forest 900</b><span>#14302A · nền tối</span></div>
+      <div class="sw"><i style="background:#A85F22"></i><b>Đồng</b><span>#A85F22 · nhấn, nền sáng</span></div>
+      <div class="sw"><i style="background:#C8782E"></i><b>Quế</b><span>#C8782E · nhấn, nền tối</span></div>
+      <div class="sw"><i style="background:#1C3557"></i><b>Navy</b><span>#1C3557 · hạn chế</span></div>
+      <div class="sw"><i style="background:#FAF6F0"></i><b>Kem</b><span>#FAF6F0</span></div>
+      <div class="sw"><i style="background:#F3ECE1"></i><b>Kem đậm</b><span>#F3ECE1</span></div>
+      <div class="sw"><i style="background:#1B1F1D"></i><b>Chữ đậm</b><span>#1B1F1D</span></div>
+    </div>
+  </section>
+
+  <section id="huong-dan">
+    <h2>Cách dùng logo</h2>
+    <div class="rules">
+      <div><h3>Khoảng trống</h3><p>Gọi x là chiều cao chữ "n". Giữ trống ít nhất 1x ở cả 4 phía logo. Biểu tượng đứng riêng: trống ít nhất 25% cạnh.</p></div>
+      <div><h3>Cỡ nhỏ nhất</h3><ul><li>Logo ngang: cao 24&nbsp;px (A), 28&nbsp;px (B, C)</li><li>In ấn: rộng từ 25&nbsp;mm</li><li>Biểu tượng: 16&nbsp;px, in từ 6&nbsp;mm</li></ul></div>
+      <div><h3>Màu theo nền</h3><ul><li>Nền trắng, kem: forest + đồng</li><li>Nền forest, ảnh tối: kem + quế</li><li>In 1 màu: dùng bản <code>-1mau</code></li></ul></div>
+    </div>
+    <h3>Không được</h3>
+    <div class="dont-grid">
+      <div class="dont"><img src="huong-a-wordmark/logo-horizontal.png" style="transform:scaleX(1.45);transform-origin:center" alt=""><span><span class="x">✕</span> Kéo méo</span></div>
+      <div class="dont"><img src="huong-a-wordmark/logo-horizontal.png" style="filter:hue-rotate(150deg) saturate(2)" alt=""><span><span class="x">✕</span> Đổi màu</span></div>
+      <div class="dont"><img src="huong-a-wordmark/logo-horizontal.png" style="filter:drop-shadow(3px 3px 2px rgba(0,0,0,.5))" alt=""><span><span class="x">✕</span> Thêm bóng</span></div>
+      <div class="dont"><img src="huong-a-wordmark/logo-horizontal.png" style="transform:rotate(-8deg)" alt=""><span><span class="x">✕</span> Xoay, nghiêng</span></div>
+    </div>
+  </section>
+</div>
